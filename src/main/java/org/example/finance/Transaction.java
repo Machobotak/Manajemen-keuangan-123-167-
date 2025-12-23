@@ -1,0 +1,41 @@
+package org.example.finance;
+
+import java.time.LocalDate;
+
+public class Transaction {
+
+    private LocalDate date;
+    private String type;      // "IN" atau "OUT"
+    private String category;
+    private double amount;
+    private String note;
+
+    public Transaction(LocalDate date, String type,
+                       String category, double amount, String note) {
+        this.date = date;
+        this.type = type;
+        this.category = category;
+        this.amount = amount;
+        this.note = note;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getNote() {
+        return note;
+    }
+}
