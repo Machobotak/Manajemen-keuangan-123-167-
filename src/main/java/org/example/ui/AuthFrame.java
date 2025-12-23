@@ -26,7 +26,29 @@ public class AuthFrame extends JFrame {
         setLayout(new GridLayout(1, 2));
 
         // ================= PANEL KIRI =================
-        JPanel leftPanel = new JPanel();
+        JPanel leftPanel = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setRenderingHint(
+                        RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON
+                );
+
+                // Lingkaran besar kiri atas
+                g2.setColor(new Color(255, 255, 255, 40));
+                g2.fillOval(-100, -100, 300, 300);
+
+                // Lingkaran kanan bawah
+                g2.setColor(new Color(255, 255, 255, 30));
+                g2.fillOval(200, 250, 350, 350);
+
+                // Lingkaran kecil tengah
+                g2.setColor(new Color(255, 255, 255, 20));
+                g2.fillOval(100, 150, 120, 120);
+            }
+        };
         leftPanel.setBackground(new Color(34, 166, 112));
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
