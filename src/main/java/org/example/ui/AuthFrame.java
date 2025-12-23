@@ -123,8 +123,9 @@ public class AuthFrame extends JFrame {
 
             if (success) {
                 clearLoginField();
-                // TODO: buka DashboardFrame
+                new DashboardFrame().setVisible(true);
                 dispose();
+
             }
         });
 
@@ -186,7 +187,7 @@ public class AuthFrame extends JFrame {
 
                 if (success) {
                     clearRegisterField();
-                    slideToLogin(); //
+                    slideToLogin();
                 }
 
             } catch (IllegalArgumentException ex) {
