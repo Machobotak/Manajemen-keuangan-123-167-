@@ -71,6 +71,79 @@ public class TransactionService {
         }
     }
 
+    // ================= DELETE =================
+    public static void deleteTransaction(Transaction target) {
+
+        if (Session.currentUser == null) {
+            throw new IllegalStateException("User belum login");
+        }
+
+        List<Transaction> list = loadTransactions();
+        list.removeIf(t ->
+                t.getDate().equals(target.getDate()) &&
+                        t.getType().equals(target.getType()) &&
+                        t.getCategory().equals(target.getCategory()) &&
+                        t.getAmount() == target.getAmount() &&
+                        t.getNote().equals(target.getNote())
+        );
+
+        rewriteFile(list);
+    }
+
+    // ================= REWRITE FILE =================
+    private static void rewriteFile(List<Transaction> list) {
+
+        try (BufferedWriter bw = new BufferedWriter(
+                new FileWriter(getFilePath(), false))) {
+
+            for (Transaction t : list) {
+                bw.write(
+                        t.getDate() + "," +
+                                t.getType() + "," +
+                                t.getCategory() + "," +
+                                t.getAmount() + "," +
+                                t.getNote()
+                );
+                bw.newLine();
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException("Gagal menghapus transaksi");
+        }
+    }
+
+    // ================= UPDATE =================
+    public static void updateTransaction(
+            Transaction oldT,
+            Transaction newT
+    ) {
+        if (Session.currentUser == null) {
+            throw new IllegalStateException("User belum login");
+        }
+
+        List<Transaction> list = loadTransactions();
+
+        for (int i = 0; i < list.size(); i++) {
+            Transaction t = list.get(i);
+            if (sameTransaction(t, oldT)) {
+                list.set(i, newT);
+                break;
+            }
+        }
+
+        rewriteFile(list);
+    }
+
+    private static boolean sameTransaction(Transaction a, Transaction b) {
+        return a.getDate().equals(b.getDate()) &&
+                a.getType().equals(b.getType()) &&
+                a.getCategory().equals(b.getCategory()) &&
+                a.getAmount() == b.getAmount() &&
+                a.getNote().equals(b.getNote());
+    }
+
+
+
     // ================= VALIDATION =================
     private static void validateTransaction(Transaction t) {
 

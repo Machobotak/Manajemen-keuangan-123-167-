@@ -16,6 +16,7 @@ public class DashboardFrame extends BaseFrame {
     public DashboardFrame() {
         super("dashboard");
         setTitle("Dashboard Keuangan");
+        initContent();
     }
 
     // ================= MAIN CONTENT =================
