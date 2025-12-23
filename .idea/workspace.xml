@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Tambah fitur edit">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Tambah fitur lihat histori">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/DashboardFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DashboardFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/DataTransactionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DataTransactionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766499051307</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tambah fitur lihat histori">
+      <option name="closed" value="true" />
+      <created>1766499091912</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1766499091912</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +146,7 @@
     <MESSAGE value="Tambah Animasi" />
     <MESSAGE value="Logic Dashboard sama UI nya" />
     <MESSAGE value="Tambah fitur edit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tambah fitur edit" />
+    <MESSAGE value="Tambah fitur lihat histori" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tambah fitur lihat histori" />
   </component>
 </project>
