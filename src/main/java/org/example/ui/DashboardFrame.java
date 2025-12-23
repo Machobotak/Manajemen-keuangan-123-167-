@@ -2,15 +2,19 @@ package org.example.ui;
 
 import org.example.finance.ChartService;
 import org.example.finance.DashboardService;
+import org.example.finance.Transaction;
+import org.example.finance.TransactionService;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.YearMonth;
+import java.util.List;
 import java.util.Map;
 
 public class DashboardFrame extends BaseFrame {
 
     public DashboardFrame() {
-        super("dashboard"); // menu aktif
+        super("dashboard");
         setTitle("Dashboard Keuangan");
     }
 
@@ -23,7 +27,7 @@ public class DashboardFrame extends BaseFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
 
         panel.add(createSummaryCards(), BorderLayout.NORTH);
-        panel.add(createChartPanel(), BorderLayout.CENTER);
+        panel.add(createBottomSection(), BorderLayout.CENTER);
 
         return panel;
     }
@@ -48,7 +52,6 @@ public class DashboardFrame extends BaseFrame {
 
         JLabel lblTitle = new JLabel(title);
         lblTitle.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblTitle.setForeground(Color.DARK_GRAY);
 
         JLabel lblValue = new JLabel("Rp " + value);
         lblValue.setFont(new Font("Segoe UI", Font.BOLD, 24));
@@ -61,8 +64,19 @@ public class DashboardFrame extends BaseFrame {
         return card;
     }
 
+    // ================= BOTTOM SECTION =================
+    private JPanel createBottomSection() {
+        JPanel panel = new JPanel(new GridLayout(1, 2, 20, 0));
+        panel.setOpaque(false);
+
+        panel.add(createChartBox());
+        panel.add(createSideInfo());
+
+        return panel;
+    }
+
     // ================= CHART =================
-    private JPanel createChartPanel() {
+    private JPanel createChartBox() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(Color.WHITE);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -72,6 +86,82 @@ public class DashboardFrame extends BaseFrame {
 
         panel.add(title, BorderLayout.NORTH);
         panel.add(new BarChartPanel(), BorderLayout.CENTER);
+
+        return panel;
+    }
+
+    // ================= RIGHT SIDE =================
+    private JPanel createSideInfo() {
+        JPanel panel = new JPanel(new GridLayout(2, 1, 0, 20));
+        panel.setOpaque(false);
+
+        panel.add(createRecentTransactionBox());
+        panel.add(createMonthlyTotalBox());
+
+        return panel;
+    }
+
+    // ================= RECENT TRANSACTIONS =================
+    private JPanel createRecentTransactionBox() {
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        JLabel title = new JLabel("Transaksi Terakhir");
+        title.setFont(new Font("Segoe UI", Font.BOLD, 15));
+
+        panel.add(title);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+        List<Transaction> list = TransactionService.loadTransactions();
+
+        if (list.isEmpty()) {
+            panel.add(new JLabel("Belum ada transaksi"));
+            return panel;
+        }
+
+        int start = Math.max(0, list.size() - 3);
+
+        for (int i = list.size() - 1; i >= start; i--) {
+            Transaction t = list.get(i);
+
+            JLabel lbl = new JLabel(
+                    t.getDate() + " | " +
+                            t.getCategory() + " | Rp " +
+                            t.getAmount()
+            );
+            lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            panel.add(lbl);
+        }
+
+        return panel;
+    }
+
+    // ================= MONTHLY TOTAL =================
+    private JPanel createMonthlyTotalBox() {
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+        JLabel title = new JLabel("Total Transaksi Bulan Ini");
+        title.setFont(new Font("Segoe UI", Font.BOLD, 15));
+
+        long total = TransactionService.loadTransactions()
+                .stream()
+                .filter(t ->
+                        YearMonth.from(t.getDate())
+                                .equals(YearMonth.now()))
+                .count();
+
+        JLabel value = new JLabel(String.valueOf(total));
+        value.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        value.setForeground(new Color(34, 166, 112));
+
+        panel.add(title);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(value);
 
         return panel;
     }
@@ -105,7 +195,13 @@ public class DashboardFrame extends BaseFrame {
                 int barHeight = (int)
                         ((entry.getValue() / maxValue) * maxBarHeight);
 
-                g2.setColor(new Color(34, 166, 112));
+                // WARNA
+                if (entry.getKey().equalsIgnoreCase("Pengeluaran")) {
+                    g2.setColor(new Color(220, 53, 69)); // merah
+                } else {
+                    g2.setColor(new Color(34, 166, 112)); // hijau
+                }
+
                 g2.fillRoundRect(
                         x,
                         height - barHeight - 40,
