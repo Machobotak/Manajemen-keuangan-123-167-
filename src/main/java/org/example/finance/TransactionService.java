@@ -10,6 +10,7 @@ import java.util.List;
 
 public class TransactionService {
 
+    // ================= FILE PATH =================
     private static String getFilePath() {
         return UserService.getTransactionFile();
     }
@@ -26,7 +27,7 @@ public class TransactionService {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] d = line.split(",");
+                String[] d = line.split(",", -1);
                 if (d.length == 5) {
                     list.add(new Transaction(
                             LocalDate.parse(d[0]),
@@ -38,7 +39,7 @@ public class TransactionService {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Gagal membaca transaksi.");
+            System.out.println("Gagal membaca data transaksi.");
         }
 
         return list;
@@ -46,7 +47,12 @@ public class TransactionService {
 
     // ================= ADD =================
     public static void addTransaction(Transaction t) {
-        if (Session.currentUser == null) return;
+
+        if (Session.currentUser == null) {
+            throw new IllegalStateException("User belum login");
+        }
+
+        validateTransaction(t);
 
         try (BufferedWriter bw = new BufferedWriter(
                 new FileWriter(getFilePath(), true))) {
@@ -61,7 +67,27 @@ public class TransactionService {
             bw.newLine();
 
         } catch (IOException e) {
-            System.out.println("Gagal menyimpan transaksi.");
+            throw new RuntimeException("Gagal menyimpan transaksi");
+        }
+    }
+
+    // ================= VALIDATION =================
+    private static void validateTransaction(Transaction t) {
+
+        if (t.getDate() == null) {
+            throw new IllegalArgumentException("Tanggal tidak boleh kosong");
+        }
+
+        if (!"IN".equals(t.getType()) && !"OUT".equals(t.getType())) {
+            throw new IllegalArgumentException("Tipe transaksi tidak valid");
+        }
+
+        if (t.getCategory() == null || t.getCategory().trim().isEmpty()) {
+            throw new IllegalArgumentException("Kategori wajib diisi");
+        }
+
+        if (t.getAmount() <= 0) {
+            throw new IllegalArgumentException("Jumlah harus lebih dari 0");
         }
     }
 }

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Tambah Animasi">
+    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Logic Dashboard sama UI nya">
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/Modul 4.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/codelab.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/src/codelab2.java" afterDir="false" />
@@ -33,16 +33,6 @@
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/ChartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/DashboardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/TransactionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AddTransactionFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/BaseFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DashboardFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DataTransactionFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/NavButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/ReportFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
@@ -51,8 +41,9 @@
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/finance/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/finance/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/finance/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/AddTransactionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AddTransactionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +60,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="login" />
+        <entry key="$PROJECT_DIR$" value="dashboard" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,7 +85,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dashboard",
+    "git-widget-placeholder": "TambahTransaksi",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -148,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766480276434</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Logic Dashboard sama UI nya">
+      <option name="closed" value="true" />
+      <created>1766484016597</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1766484016597</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +166,7 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="Update UI Background" />
     <MESSAGE value="Tambah Animasi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tambah Animasi" />
+    <MESSAGE value="Logic Dashboard sama UI nya" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logic Dashboard sama UI nya" />
   </component>
 </project>
