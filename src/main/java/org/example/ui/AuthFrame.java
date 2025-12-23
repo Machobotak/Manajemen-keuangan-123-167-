@@ -72,6 +72,8 @@ public class AuthFrame extends JFrame {
 
         loginUsername = new JTextField();
         loginPassword = new JPasswordField();
+        styleRoundedField(loginUsername);
+        styleRoundedField(loginPassword);
 
         JButton btnLogin = new JButton("LOGIN");
         styleGreenButton(btnLogin);
@@ -93,7 +95,7 @@ public class AuthFrame extends JFrame {
         });
 
         JButton btnRegister = new JButton("REGISTER");
-        styleGreenOutlineButton(btnRegister);
+        styleRoundedOutlineButton(btnRegister);
         btnRegister.addActionListener(e -> {
             clearLoginField();
             cardLayout.show(formPanel, "register");
@@ -132,6 +134,8 @@ public class AuthFrame extends JFrame {
 
         registerUsername = new JTextField();
         registerPassword = new JPasswordField();
+        styleRoundedField(registerUsername);
+        styleRoundedField(registerPassword);
 
         JButton btnSignUp = new JButton("SIGN UP");
         styleGreenButton(btnSignUp);
@@ -249,4 +253,48 @@ public class AuthFrame extends JFrame {
         btn.setFocusPainted(false);
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
+
+    private void styleRoundedOutlineButton(JButton btn) {
+        btn.setForeground(new Color(34, 166, 112));
+        btn.setFocusPainted(false);
+        btn.setBorderPainted(false);
+        btn.setContentAreaFilled(false);
+        btn.setOpaque(false);
+        btn.setMaximumSize(new Dimension(220, 40));
+        btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        btn.setUI(new BasicButtonUI() {
+            @Override
+            public void paint(Graphics g, JComponent c) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(
+                        RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON
+                );
+
+                // outline rounded
+                g2.setColor(new Color(34, 166, 112));
+                g2.setStroke(new BasicStroke(2));
+                g2.drawRoundRect(
+                        1, 1,
+                        c.getWidth() - 3,
+                        c.getHeight() - 3,
+                        30, 30
+                );
+
+                super.paint(g2, c);
+                g2.dispose();
+            }
+        });
+
+    }
+    private void styleRoundedField(JTextField field) {
+        field.setBorder(new RoundedBorder(
+                20,
+                new Color(34, 166, 112)
+        ));
+        field.setMaximumSize(new Dimension(300, 35));
+    }
+
+
 }

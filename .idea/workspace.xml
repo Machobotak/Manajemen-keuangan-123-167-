@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="">
+    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Tambahan UI">
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/Modul 4.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/codelab.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/src/codelab2.java" afterDir="false" />
@@ -33,7 +33,6 @@
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
@@ -41,9 +40,7 @@
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +99,15 @@
       <option name="presentableId" value="Default" />
       <updated>1766429464246</updated>
     </task>
+    <task id="LOCAL-00001" summary="Tambahan UI">
+      <option name="closed" value="true" />
+      <created>1766477536787</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766477536787</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,5 +120,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Tambahan UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tambahan UI" />
   </component>
 </project>
