@@ -15,8 +15,9 @@ public class AuthFrame extends JFrame {
     private JTextField registerUsername;
     private JPasswordField registerPassword;
 
-    private CardLayout cardLayout;
-    private JPanel formPanel;
+    private JPanel loginPanel;
+    private JPanel registerPanel;
+    private JPanel formWrapper;
 
     public AuthFrame() {
         setTitle("Login & Register");
@@ -24,6 +25,20 @@ public class AuthFrame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(1, 2));
+
+        formWrapper = new JPanel(null);
+        formWrapper.setBackground(Color.WHITE);
+
+        loginPanel = createLoginPanel();
+        registerPanel = createRegisterPanel();
+
+        loginPanel.setBounds(0, 0, 450, 500);
+        registerPanel.setBounds(450, 0, 450, 500);
+
+        formWrapper.add(loginPanel);
+        formWrapper.add(registerPanel);
+
+
 
         // ================= PANEL KIRI =================
         JPanel leftPanel = new JPanel(){
@@ -69,16 +84,13 @@ public class AuthFrame extends JFrame {
         leftPanel.add(Box.createVerticalGlue());
 
         // ================= PANEL KANAN =================
-        cardLayout = new CardLayout();
-        formPanel = new JPanel(cardLayout);
 
-        formPanel.add(createLoginPanel(), "login");
-        formPanel.add(createRegisterPanel(), "register");
 
-        add(leftPanel);
-        add(formPanel);
+        add(leftPanel);    // kiri
+        add(formWrapper);  // kanan
 
-        cardLayout.show(formPanel, "login");
+
+
     }
 
     // ================= LOGIN PANEL =================
@@ -120,7 +132,7 @@ public class AuthFrame extends JFrame {
         styleRoundedOutlineButton(btnRegister);
         btnRegister.addActionListener(e -> {
             clearLoginField();
-            cardLayout.show(formPanel, "register");
+            slideToRegister();
         });
 
         JPanel buttonGroup = new JPanel();
@@ -174,7 +186,7 @@ public class AuthFrame extends JFrame {
 
                 if (success) {
                     clearRegisterField();
-                    cardLayout.show(formPanel, "login");
+                    slideToLogin(); //
                 }
 
             } catch (IllegalArgumentException ex) {
@@ -186,7 +198,7 @@ public class AuthFrame extends JFrame {
         styleLinkButton(btnToLogin);
         btnToLogin.addActionListener(e -> {
             clearRegisterField();
-            cardLayout.show(formPanel, "login");
+            slideToLogin();
         });
 
         panel.add(Box.createVerticalGlue());
@@ -317,6 +329,46 @@ public class AuthFrame extends JFrame {
         ));
         field.setMaximumSize(new Dimension(300, 35));
     }
+    private void slideToRegister() {
+        clearLoginField();
+
+        Timer timer = new Timer(5, null);
+        timer.addActionListener(e -> {
+            int x1 = loginPanel.getX();
+            int x2 = registerPanel.getX();
+
+            loginPanel.setLocation(x1 - 20, 0);
+            registerPanel.setLocation(x2 - 20, 0);
+
+            if (registerPanel.getX() <= 0) {
+                loginPanel.setLocation(-450, 0);
+                registerPanel.setLocation(0, 0);
+                timer.stop();
+            }
+        });
+        timer.start();
+    }
+
+    private void slideToLogin() {
+        clearRegisterField();
+
+        Timer timer = new Timer(5, null);
+        timer.addActionListener(e -> {
+            int x1 = loginPanel.getX();
+            int x2 = registerPanel.getX();
+
+            loginPanel.setLocation(x1 + 20, 0);
+            registerPanel.setLocation(x2 + 20, 0);
+
+            if (loginPanel.getX() >= 0) {
+                loginPanel.setLocation(0, 0);
+                registerPanel.setLocation(450, 0);
+                timer.stop();
+            }
+        });
+        timer.start();
+    }
+
 
 
 }
