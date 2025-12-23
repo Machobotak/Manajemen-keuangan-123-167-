@@ -33,7 +33,7 @@
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
@@ -41,10 +41,10 @@
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "login",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -94,5 +94,16 @@
       <updated>1766429464246</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
