@@ -4,42 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/Modul 4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/codelab.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/src/codelab2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 6/codelab/src/main/java/org/example/codelab2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Modul 3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/Tugas.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/src/NotaRestoran.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/Tugas.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/src/Tugas1/Film.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/src/Tugas2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/.idea/Modul 5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/Tugas 2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/Tugas1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/Bill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/BillData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/IBillCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
+    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="Tambah fitur edit">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/DashboardFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DashboardFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/DataTransactionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/DataTransactionFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dashboard" />
+        <entry key="$PROJECT_DIR$" value="edit-transaction" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +51,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "history",
     "kotlin-language-version-configured": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
@@ -143,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766484016597</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tambah fitur edit">
+      <option name="closed" value="true" />
+      <created>1766499051307</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1766499051307</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +141,7 @@
     <MESSAGE value="Update UI Background" />
     <MESSAGE value="Tambah Animasi" />
     <MESSAGE value="Logic Dashboard sama UI nya" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logic Dashboard sama UI nya" />
+    <MESSAGE value="Tambah fitur edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tambah fitur edit" />
   </component>
 </project>
