@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Login.Session;
 import org.example.Login.UserService;
 
 import java.util.Scanner;
@@ -28,17 +29,15 @@ public class App
 
         if (pilih == 1) {
             boolean success = UserService.register(username, password);
-            if (success) {
-                System.out.println("Register berhasil!");
-            } else {
-                System.out.println("Username sudah digunakan.");
-            }
+            System.out.println(success ? "Register berhasil" : "Username sudah ada");
         } else if (pilih == 2) {
             boolean success = UserService.login(username, password);
             if (success) {
-                System.out.println("Login berhasil!");
+                System.out.println("Login berhasil");
+                System.out.println("User aktif: " + Session.currentUser);
+                System.out.println("File transaksi: " + UserService.getTransactionFile());
             } else {
-                System.out.println("Username atau password salah.");
+                System.out.println("Login gagal");
             }
         }
     }
