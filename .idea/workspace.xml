@@ -1,5 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/Modul 4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/codelab.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 4/codelab/src/codelab2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Codelab/Modul 6/codelab/src/main/java/org/example/codelab2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Modul 3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/Tugas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/src/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 3/Tugas/src/NotaRestoran.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/Tugas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/src/Tugas1/Film.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 4/Tugas/src/Tugas2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/.idea/Modul 5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/Tugas 2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 5/Tugas1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/Bill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/BillData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/IBillCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/IBillCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Kost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/User.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="37DEuLSqEESdKbcIWnUE8lwxSeM" />
-  <component name="PropertiesComponent">{}</component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.App.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="" />
+      <created>1766429464246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766429464246</updated>
+    </task>
+    <servers />
+  </component>
 </project>
