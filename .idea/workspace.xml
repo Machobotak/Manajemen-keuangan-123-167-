@@ -33,7 +33,7 @@
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/TableDashboardFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/main/java/org/example/ui/formInputFrame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../Tugas/Modul 6/Tugas/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/AuthFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Codelab/Modul 3/Codelab/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas1/MainApp.java" afterDir="false" />
@@ -43,8 +43,7 @@
       <change beforePath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Tugas/Modul 2/Tugas/src/Tugas3/sesudah/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Login/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +73,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.App.executor": "Run",
+    "Application.RUNNN.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -85,6 +85,15 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="RUNNN" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="sistemManajemenKeuangan" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="fa074874-c797-4501-99d6-51ecccaecdec" name="Changes" comment="" />
