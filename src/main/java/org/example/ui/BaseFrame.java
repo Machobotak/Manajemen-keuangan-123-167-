@@ -15,7 +15,6 @@ public abstract class BaseFrame extends JFrame {
     protected NavButton btnDashboard;
     protected NavButton btnTambah;
     protected NavButton btnData;
-    protected NavButton btnLaporan;
 
     public BaseFrame(String activeMenu) {
         setSize(1100, 650);
@@ -40,12 +39,10 @@ public abstract class BaseFrame extends JFrame {
         btnDashboard = new NavButton("Dashboard");
         btnTambah = new NavButton("Tambah Transaksi");
         btnData = new NavButton("Data Transaksi");
-        btnLaporan = new NavButton("Laporan");
 
         menuPanel.add(btnDashboard);
         menuPanel.add(btnTambah);
         menuPanel.add(btnData);
-        menuPanel.add(btnLaporan);
 
         setActiveMenu(activeMenu);
 
@@ -74,7 +71,6 @@ public abstract class BaseFrame extends JFrame {
         btnDashboard.addActionListener(e -> switchFrame(new DashboardFrame()));
         btnTambah.addActionListener(e -> switchFrame(new AddTransactionFrame()));
         btnData.addActionListener(e -> switchFrame(new DataTransactionFrame()));
-        btnLaporan.addActionListener(e -> switchFrame(new ReportFrame()));
 
         return panel;
     }
@@ -91,7 +87,6 @@ public abstract class BaseFrame extends JFrame {
         btnDashboard.setActive(menu.equals("dashboard"));
         btnTambah.setActive(menu.equals("tambah"));
         btnData.setActive(menu.equals("data"));
-        btnLaporan.setActive(menu.equals("laporan"));
     }
 
     // ================= NAV BUTTON =================
