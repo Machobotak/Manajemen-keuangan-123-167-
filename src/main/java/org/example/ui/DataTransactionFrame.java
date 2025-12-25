@@ -10,6 +10,7 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.Comparator;
+import java.util.regex.Pattern;
 import java.util.List;
 
 public class DataTransactionFrame extends BaseFrame {
@@ -64,12 +65,17 @@ public class DataTransactionFrame extends BaseFrame {
         txtSearch.getDocument().addDocumentListener(new DocumentListener() {
             private void filter() {
                 String key = txtSearch.getText().trim();
+
                 if (key.isEmpty()) {
                     sorter.setRowFilter(null);
-                } else {
-                    sorter.setRowFilter(RowFilter.regexFilter("(?i)" + key, 2, 4));
+                    return;
                 }
+
+                sorter.setRowFilter(
+                        RowFilter.regexFilter("(?i)" + Pattern.quote(key))
+                );
             }
+
             @Override public void insertUpdate(DocumentEvent e) { filter(); }
             @Override public void removeUpdate(DocumentEvent e) { filter(); }
             @Override public void changedUpdate(DocumentEvent e) {}
@@ -114,7 +120,10 @@ public class DataTransactionFrame extends BaseFrame {
 
         btnEdit.addActionListener(e -> editSelected());
         btnDelete.addActionListener(e -> deleteSelected());
-        btnBack.addActionListener(e -> dispose());
+        btnBack.addActionListener(e -> {
+            new DashboardFrame().setVisible(true);
+            dispose();
+        });
 
         panel.add(btnEdit);
         panel.add(btnDelete);
