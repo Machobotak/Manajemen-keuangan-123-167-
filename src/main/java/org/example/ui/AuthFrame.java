@@ -24,6 +24,7 @@ public class AuthFrame extends JFrame {
         setSize(900, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
         setLayout(new GridLayout(1, 2));
 
         formWrapper = new JPanel(null);
@@ -123,8 +124,9 @@ public class AuthFrame extends JFrame {
 
             if (success) {
                 clearLoginField();
-                // TODO: buka DashboardFrame
+                new DashboardFrame().setVisible(true);
                 dispose();
+
             }
         });
 
@@ -186,7 +188,7 @@ public class AuthFrame extends JFrame {
 
                 if (success) {
                     clearRegisterField();
-                    slideToLogin(); //
+                    slideToLogin();
                 }
 
             } catch (IllegalArgumentException ex) {
@@ -351,7 +353,6 @@ public class AuthFrame extends JFrame {
 
     private void slideToLogin() {
         clearRegisterField();
-
         Timer timer = new Timer(5, null);
         timer.addActionListener(e -> {
             int x1 = loginPanel.getX();
