@@ -11,7 +11,7 @@ public class AddTransactionFrame extends BaseFrame {
 
     private JTextField txtDate;
     private JComboBox<String> cbType;
-    private JTextField txtCategory;
+    private JComboBox<String> cbCategory;
     private JTextField txtAmount;
     private JTextArea txtNote;
 
@@ -58,9 +58,16 @@ public class AddTransactionFrame extends BaseFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
         panel.setMaximumSize(new Dimension(520, 500));
 
-        // ---- INIT FIELD (WAJIB DULU) ----
         txtDate = new JTextField(LocalDate.now().toString());
-        txtCategory = new JTextField();
+        cbCategory = new JComboBox<>(new String[]{
+                "-- Pilih Kategori --",
+                "Makan",
+                "Transport",
+                "Hiburan",
+                "Pendidikan",
+                "Kesehatan",
+                "Lainnya"
+        });
         txtAmount = new JTextField();
         cbType = new JComboBox<>(new String[]{"IN", "OUT"});
 
@@ -70,7 +77,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         // ---- STYLE ----
         styleRoundedField(txtDate);
-        styleRoundedField(txtCategory);
+        styleRoundedComboBox(cbCategory);
         styleRoundedField(txtAmount);
         styleRoundedComboBox(cbType);
         styleRoundedArea(txtNote);
@@ -79,7 +86,7 @@ public class AddTransactionFrame extends BaseFrame {
         if (editMode && oldTransaction != null) {
             txtDate.setText(oldTransaction.getDate().toString());
             cbType.setSelectedItem(oldTransaction.getType());
-            txtCategory.setText(oldTransaction.getCategory());
+            cbCategory.setSelectedItem(oldTransaction.getCategory());
             txtAmount.setText(String.valueOf(oldTransaction.getAmount()));
             txtNote.setText(oldTransaction.getNote());
         }
@@ -90,7 +97,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         panel.add(input("Tanggal (YYYY-MM-DD)", txtDate));
         panel.add(input("Tipe Transaksi", cbType));
-        panel.add(input("Kategori", txtCategory));
+        panel.add(input("Kategori", cbCategory));
         panel.add(input("Jumlah", txtAmount));
         panel.add(inputArea("Catatan", txtNote));
 
@@ -103,10 +110,13 @@ public class AddTransactionFrame extends BaseFrame {
     // ================= SAVE =================
     private void saveTransaction() {
         try {
+            if (cbCategory.getSelectedIndex() == 0) {
+                throw new IllegalArgumentException("Kategori harus dipilih");
+            }
             Transaction t = new Transaction(
                     LocalDate.parse(txtDate.getText()),
                     cbType.getSelectedItem().toString(),
-                    txtCategory.getText(),
+                    cbCategory.getSelectedItem().toString(),
                     Double.parseDouble(txtAmount.getText()),
                     txtNote.getText()
             );
