@@ -23,7 +23,6 @@ public abstract class BaseFrame extends JFrame {
         setLayout(new BorderLayout());
 
         add(createTopBar(activeMenu), BorderLayout.NORTH);
-        add(createContent(), BorderLayout.CENTER);
     }
 
     // ================= TOP BAR =================
@@ -127,6 +126,10 @@ public abstract class BaseFrame extends JFrame {
                 );
             }
         }
+    }
+
+    protected void initContent() {
+        add(createContent(), BorderLayout.CENTER);
     }
 
     // ================= LOGOUT STYLE =================

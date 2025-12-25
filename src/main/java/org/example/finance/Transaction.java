@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Transaction {
 
     private LocalDate date;
-    private String type;      // "IN" atau "OUT"
+    private String type;     // "IN" atau "OUT"
     private String category;
     private double amount;
     private String note;
