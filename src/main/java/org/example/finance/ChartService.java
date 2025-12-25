@@ -5,11 +5,6 @@ import java.util.Map;
 
 public class ChartService {
 
-    /**
-     * Data grafik:
-     * - Pemasukan
-     * - Pengeluaran
-     */
     public static Map<String, Double> getIncomeExpenseChart() {
         Map<String, Double> data = new LinkedHashMap<>();
 

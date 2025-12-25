@@ -79,6 +79,7 @@ public class AddTransactionFrame extends BaseFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
         panel.setMaximumSize(new Dimension(520, 520));
 
+        // ===== INIT FIELD =====
         txtDate = new JTextField(LocalDate.now().toString());
         cbType = new JComboBox<>(new String[]{"IN", "OUT"});
         cbCategory = new JComboBox<>();
@@ -95,7 +96,7 @@ public class AddTransactionFrame extends BaseFrame {
         styleRoundedField(txtAmount);
         styleRoundedArea(txtNote);
 
-        // ===== LISTENER TYPE =====
+        // ===== EVENT TYPE CHANGE =====
         cbType.addActionListener(e -> updateCategoryByType());
 
         // ===== INIT CATEGORY =====
@@ -105,7 +106,7 @@ public class AddTransactionFrame extends BaseFrame {
         if (editMode && oldTransaction != null) {
             txtDate.setText(oldTransaction.getDate().toString());
             cbType.setSelectedItem(oldTransaction.getType());
-            updateCategoryByType();
+            updateCategoryByType(); // PENTING
             cbCategory.setSelectedItem(oldTransaction.getCategory());
             txtAmount.setText(String.valueOf(oldTransaction.getAmount()));
             txtNote.setText(oldTransaction.getNote());
@@ -249,8 +250,10 @@ public class AddTransactionFrame extends BaseFrame {
             @Override
             public void paint(Graphics g, JComponent c) {
                 Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setRenderingHint(
+                        RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON
+                );
                 g2.setColor(btn.getBackground());
                 g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 30, 30);
                 super.paint(g2, c);
