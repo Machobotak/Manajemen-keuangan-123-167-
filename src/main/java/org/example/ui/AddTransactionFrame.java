@@ -111,13 +111,28 @@ public class AddTransactionFrame extends BaseFrame {
     private void saveTransaction() {
         try {
             if (cbCategory.getSelectedIndex() == 0) {
-                throw new IllegalArgumentException("Kategori harus dipilih");
+                JOptionPane.showMessageDialog(this, "Kategori harus dipilih");
+                return;
             }
+
+            if (txtAmount.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Jumlah harus diisi");
+                return;
+            }
+
+            double amount;
+            try {
+                amount = Double.parseDouble(txtAmount.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Jumlah harus berupa angka");
+                return;
+            }
+
             Transaction t = new Transaction(
                     LocalDate.parse(txtDate.getText()),
                     cbType.getSelectedItem().toString(),
                     cbCategory.getSelectedItem().toString(),
-                    Double.parseDouble(txtAmount.getText()),
+                    amount,
                     txtNote.getText()
             );
 
@@ -132,15 +147,12 @@ public class AddTransactionFrame extends BaseFrame {
             new DataTransactionFrame().setVisible(true);
             dispose();
 
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    ex.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Periksa kembali input");
         }
     }
+
+
 
     // ================= INPUT HELPERS =================
     private JPanel input(String label, JComponent field) {
