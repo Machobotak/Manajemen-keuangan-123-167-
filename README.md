@@ -31,35 +31,38 @@ Aplikasi ini mendukung fitur login, pencatatan transaksi pemasukan dan pengeluar
 ---
 
 ## 🗂️ Struktur Folder
-src/main/java/org/example
-│
-├── data
-│ ├── users.csv
-│ ├── transactions_<username>.csv
-│
-├── finance
-│ ├── Transaction.java
-│ ├── TransactionService.java
-│ ├── DashboardService.java
-│ └── ChartService.java
-│
-├── login
-│ ├── User.java
-│ ├── UserService.java
-│ └── Session.java
-│
-├── ui
-│ ├── AuthFrame.java
-│ ├── DashboardFrame.java
-│ ├── AddTransactionFrame.java
-│ ├── DataTransactionFrame.java
-│ ├── ReportFrame.java
-│ ├── BaseFrame.java
-│ ├── NavButton.java
-│ ├── RoundedBorder.java
-│ └── TransactionTableModel.java
-│
-└── App.java
+src/
+└── main/
+    └── java/
+        └── org/
+            └── example/
+                ├── App.java
+                │
+                ├── data/
+                │   ├── users.csv
+                │   ├── transactions.csv
+                │
+                ├── finance/
+                │   ├── Transaction.java
+                │   ├── TransactionService.java
+                │   ├── DashboardService.java
+                │   └── ChartService.java
+                │
+                ├── login/
+                │   ├── User.java
+                │   ├── UserService.java
+                │   └── Session.java
+                │
+                └── ui/
+                    ├── AuthFrame.java
+                    ├── DashboardFrame.java
+                    ├── AddTransactionFrame.java
+                    ├── DataTransactionFrame.java
+                    ├── ReportFrame.java
+                    ├── BaseFrame.java
+                    ├── NavButton.java
+                    ├── RoundedBorder.java
+                    └── TransactionTableModel.java
 
 ---
 
