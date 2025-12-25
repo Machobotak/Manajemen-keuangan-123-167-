@@ -86,11 +86,8 @@ public class AuthFrame extends JFrame {
 
         // ================= PANEL KANAN =================
 
-
         add(leftPanel);    // kiri
         add(formWrapper);  // kanan
-
-
 
     }
 
@@ -269,21 +266,12 @@ public class AuthFrame extends JFrame {
                 g2.setColor(btn.getBackground());
                 g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 30, 30);
 
-                super.paint(g2, c); // ✅ FIX DI SINI
+                super.paint(g2, c);
                 g2.dispose();
             }
         });
     }
 
-    private void styleGreenOutlineButton(JButton btn) {
-        btn.setForeground(new Color(34, 166, 112));
-        btn.setFocusPainted(false);
-        btn.setContentAreaFilled(false);
-        btn.setBorder(BorderFactory.createLineBorder(
-                new Color(34, 166, 112), 2, true));
-        btn.setMaximumSize(new Dimension(220, 40));
-        btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-    }
 
     private void styleLinkButton(JButton btn) {
         btn.setBorder(null);

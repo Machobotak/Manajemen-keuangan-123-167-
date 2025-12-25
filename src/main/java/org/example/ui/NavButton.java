@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import java.awt.*;
 
-import static javax.swing.text.StyleConstants.setForeground;
 
 public class NavButton extends JButton {
 

@@ -1,9 +1,6 @@
 package org.example.ui;
 
 import org.example.Login.Session;
-import org.example.ui.AddTransactionFrame;
-import org.example.ui.DataTransactionFrame;
-import org.example.ui.ReportFrame;
 
 
 import javax.swing.*;

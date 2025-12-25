@@ -70,9 +70,7 @@ public class UserService {
         return false;
     }
 
-    public static void logout(){
-        Session.currentUser = null;
-    }
+
 
     public static String getTransactionFile() {
         if (Session.currentUser == null) return null;
