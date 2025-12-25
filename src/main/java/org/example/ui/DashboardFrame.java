@@ -111,30 +111,35 @@ public class DashboardFrame extends BaseFrame {
 
         JLabel title = new JLabel("Transaksi Terakhir");
         title.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        title.setForeground(new Color(34,166,122));
+        title.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        panel.add(title);
-        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        title.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                new DataTransactionFrame().setVisible(true);
+                dispose();
+            }
 
-        List<Transaction> list = TransactionService.loadTransactions();
+        });
 
-        if (list.isEmpty()) {
-            panel.add(new JLabel("Belum ada transaksi"));
-            return panel;
-        }
 
-        int start = Math.max(0, list.size() - 3);
 
-        for (int i = list.size() - 1; i >= start; i--) {
-            Transaction t = list.get(i);
 
-            JLabel lbl = new JLabel(
-                    t.getDate() + " | " +
-                            t.getCategory() + " | Rp " +
-                            t.getAmount()
-            );
-            lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            panel.add(lbl);
-        }
+        panel.add(title,BorderLayout.NORTH);
+        String[] coloums = {"Tanggal","kategori","Tipe","Jumlah"};
+        Object[][] data = getLastThreeTransaction();
+
+        JTable table = new JTable(data,coloums);
+        table.setEnabled(false);
+        table.setRowHeight(22);
+        table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
+        panel.add(scrollPane,BorderLayout.CENTER);
+
 
         return panel;
     }
@@ -222,5 +227,18 @@ public class DashboardFrame extends BaseFrame {
                 x += barWidth + 80;
             }
         }
+    }
+    private Object[][] getLastThreeTransaction(){
+        List<Transaction>list = TransactionService.loadTransactions();
+        int size = Math.min(3,list.size());
+        Object[][] data = new Object[size][4];
+        for(int i =0;i<size;i++){
+            Transaction t = list.get(list.size()-1-i);
+            data[i][0]=t.getDate();
+            data[i][1]=t.getCategory();
+            data[i][2]=t.getType();
+            data[i][3]= "Rp "+t.getAmount();
+        }
+        return data;
     }
 }

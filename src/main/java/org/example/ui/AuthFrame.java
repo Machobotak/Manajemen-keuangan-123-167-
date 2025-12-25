@@ -119,14 +119,17 @@ public class AuthFrame extends JFrame {
                     new String(loginPassword.getPassword())
             );
 
-            JOptionPane.showMessageDialog(this,
-                    success ? "Login berhasil!" : "Username atau password salah");
-
             if (success) {
                 clearLoginField();
                 new DashboardFrame().setVisible(true);
                 dispose();
-
+            } else {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Username atau password salah",
+                        "Login Gagal",
+                        JOptionPane.ERROR_MESSAGE
+                );
             }
         });
 
