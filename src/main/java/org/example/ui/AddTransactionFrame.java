@@ -46,7 +46,6 @@ public class AddTransactionFrame extends BaseFrame {
 
         container.add(title, BorderLayout.NORTH);
         container.add(createForm(), BorderLayout.CENTER);
-
         return container;
     }
 
