@@ -11,12 +11,33 @@ public class AddTransactionFrame extends BaseFrame {
 
     private JTextField txtDate;
     private JComboBox<String> cbType;
-    private JTextField txtCategory;
+    private JComboBox<String> cbCategory;
     private JTextField txtAmount;
     private JTextArea txtNote;
 
     private boolean editMode = false;
     private Transaction oldTransaction;
+
+    // ===== KATEGORI =====
+    private static final String[] CATEGORY_IN = {
+            "-- Pilih Kategori --",
+            "Gaji",
+            "Bonus",
+            "Hadiah",
+            "Penjualan",
+            "Lainnya"
+    };
+
+    private static final String[] CATEGORY_OUT = {
+            "-- Pilih Kategori --",
+            "Makan",
+            "Transport",
+            "Belanja",
+            "Hiburan",
+            "Pendidikan",
+            "Kesehatan",
+            "Lainnya"
+    };
 
     // ================= CONSTRUCTOR ADD =================
     public AddTransactionFrame() {
@@ -46,6 +67,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         container.add(title, BorderLayout.NORTH);
         container.add(createForm(), BorderLayout.CENTER);
+
         return container;
     }
 
@@ -55,30 +77,36 @@ public class AddTransactionFrame extends BaseFrame {
         panel.setBackground(Color.WHITE);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
-        panel.setMaximumSize(new Dimension(520, 500));
+        panel.setMaximumSize(new Dimension(520, 520));
 
-        // ---- INIT FIELD (WAJIB DULU) ----
         txtDate = new JTextField(LocalDate.now().toString());
-        txtCategory = new JTextField();
-        txtAmount = new JTextField();
         cbType = new JComboBox<>(new String[]{"IN", "OUT"});
+        cbCategory = new JComboBox<>();
+        txtAmount = new JTextField();
 
         txtNote = new JTextArea(3, 20);
         txtNote.setLineWrap(true);
         txtNote.setWrapStyleWord(true);
 
-        // ---- STYLE ----
+        // ===== STYLE =====
         styleRoundedField(txtDate);
-        styleRoundedField(txtCategory);
-        styleRoundedField(txtAmount);
         styleRoundedComboBox(cbType);
+        styleRoundedComboBox(cbCategory);
+        styleRoundedField(txtAmount);
         styleRoundedArea(txtNote);
 
-        // ---- ISI DATA EDIT (SETELAH FIELD ADA) ----
+        // ===== LISTENER TYPE =====
+        cbType.addActionListener(e -> updateCategoryByType());
+
+        // ===== INIT CATEGORY =====
+        updateCategoryByType();
+
+        // ===== EDIT MODE =====
         if (editMode && oldTransaction != null) {
             txtDate.setText(oldTransaction.getDate().toString());
             cbType.setSelectedItem(oldTransaction.getType());
-            txtCategory.setText(oldTransaction.getCategory());
+            updateCategoryByType();
+            cbCategory.setSelectedItem(oldTransaction.getCategory());
             txtAmount.setText(String.valueOf(oldTransaction.getAmount()));
             txtNote.setText(oldTransaction.getNote());
         }
@@ -89,7 +117,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         panel.add(input("Tanggal (YYYY-MM-DD)", txtDate));
         panel.add(input("Tipe Transaksi", cbType));
-        panel.add(input("Kategori", txtCategory));
+        panel.add(input("Kategori", cbCategory));
         panel.add(input("Jumlah", txtAmount));
         panel.add(inputArea("Catatan", txtNote));
 
@@ -99,35 +127,60 @@ public class AddTransactionFrame extends BaseFrame {
         return panel;
     }
 
+    // ================= UPDATE CATEGORY =================
+    private void updateCategoryByType() {
+        cbCategory.removeAllItems();
+
+        String type = cbType.getSelectedItem().toString();
+        String[] categories = type.equals("IN") ? CATEGORY_IN : CATEGORY_OUT;
+
+        for (String c : categories) {
+            cbCategory.addItem(c);
+        }
+
+        cbCategory.setSelectedIndex(0);
+    }
+
     // ================= SAVE =================
     private void saveTransaction() {
         try {
+            if (cbCategory.getSelectedIndex() == 0) {
+                JOptionPane.showMessageDialog(this, "Kategori harus dipilih");
+                return;
+            }
+
+            if (txtAmount.getText().trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Jumlah harus diisi");
+                return;
+            }
+
+            double amount;
+            try {
+                amount = Double.parseDouble(txtAmount.getText());
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Jumlah harus berupa angka");
+                return;
+            }
+
             Transaction t = new Transaction(
                     LocalDate.parse(txtDate.getText()),
                     cbType.getSelectedItem().toString(),
-                    txtCategory.getText(),
-                    Double.parseDouble(txtAmount.getText()),
+                    cbCategory.getSelectedItem().toString(),
+                    amount,
                     txtNote.getText()
             );
 
             if (editMode) {
                 TransactionService.updateTransaction(oldTransaction, t);
-                JOptionPane.showMessageDialog(this, "Transaksi berhasil diubah");
             } else {
                 TransactionService.addTransaction(t);
-                JOptionPane.showMessageDialog(this, "Transaksi berhasil disimpan");
             }
 
             new DataTransactionFrame().setVisible(true);
             dispose();
 
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    ex.getMessage(),
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-            );
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Periksa kembali input");
         }
     }
 
@@ -156,7 +209,6 @@ public class AddTransactionFrame extends BaseFrame {
 
         JScrollPane scroll = new JScrollPane(area);
         scroll.setBorder(new RoundedBorder(20, new Color(34, 166, 112)));
-        scroll.setMaximumSize(new Dimension(420, 90));
         scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         panel.add(lbl, BorderLayout.NORTH);
@@ -197,17 +249,10 @@ public class AddTransactionFrame extends BaseFrame {
             @Override
             public void paint(Graphics g, JComponent c) {
                 Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(
-                        RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON
-                );
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON);
                 g2.setColor(btn.getBackground());
-                g2.fillRoundRect(
-                        0, 0,
-                        c.getWidth(),
-                        c.getHeight(),
-                        30, 30
-                );
+                g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 30, 30);
                 super.paint(g2, c);
                 g2.dispose();
             }
