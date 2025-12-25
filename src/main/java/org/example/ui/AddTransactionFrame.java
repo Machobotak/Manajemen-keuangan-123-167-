@@ -11,7 +11,7 @@ public class AddTransactionFrame extends BaseFrame {
 
     private JTextField txtDate;
     private JComboBox<String> cbType;
-    private JComboBox<String> cbCategory;
+    private JTextField txtCategory;
     private JTextField txtAmount;
     private JTextArea txtNote;
 
@@ -58,16 +58,9 @@ public class AddTransactionFrame extends BaseFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
         panel.setMaximumSize(new Dimension(520, 500));
 
+        // ---- INIT FIELD (WAJIB DULU) ----
         txtDate = new JTextField(LocalDate.now().toString());
-        cbCategory = new JComboBox<>(new String[]{
-                "-- Pilih Kategori --",
-                "Makan",
-                "Transport",
-                "Hiburan",
-                "Pendidikan",
-                "Kesehatan",
-                "Lainnya"
-        });
+        txtCategory = new JTextField();
         txtAmount = new JTextField();
         cbType = new JComboBox<>(new String[]{"IN", "OUT"});
 
@@ -77,7 +70,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         // ---- STYLE ----
         styleRoundedField(txtDate);
-        styleRoundedComboBox(cbCategory);
+        styleRoundedField(txtCategory);
         styleRoundedField(txtAmount);
         styleRoundedComboBox(cbType);
         styleRoundedArea(txtNote);
@@ -86,7 +79,7 @@ public class AddTransactionFrame extends BaseFrame {
         if (editMode && oldTransaction != null) {
             txtDate.setText(oldTransaction.getDate().toString());
             cbType.setSelectedItem(oldTransaction.getType());
-            cbCategory.setSelectedItem(oldTransaction.getCategory());
+            txtCategory.setText(oldTransaction.getCategory());
             txtAmount.setText(String.valueOf(oldTransaction.getAmount()));
             txtNote.setText(oldTransaction.getNote());
         }
@@ -97,7 +90,7 @@ public class AddTransactionFrame extends BaseFrame {
 
         panel.add(input("Tanggal (YYYY-MM-DD)", txtDate));
         panel.add(input("Tipe Transaksi", cbType));
-        panel.add(input("Kategori", cbCategory));
+        panel.add(input("Kategori", txtCategory));
         panel.add(input("Jumlah", txtAmount));
         panel.add(inputArea("Catatan", txtNote));
 
@@ -110,29 +103,11 @@ public class AddTransactionFrame extends BaseFrame {
     // ================= SAVE =================
     private void saveTransaction() {
         try {
-            if (cbCategory.getSelectedIndex() == 0) {
-                JOptionPane.showMessageDialog(this, "Kategori harus dipilih");
-                return;
-            }
-
-            if (txtAmount.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Jumlah harus diisi");
-                return;
-            }
-
-            double amount;
-            try {
-                amount = Double.parseDouble(txtAmount.getText());
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Jumlah harus berupa angka");
-                return;
-            }
-
             Transaction t = new Transaction(
                     LocalDate.parse(txtDate.getText()),
                     cbType.getSelectedItem().toString(),
-                    cbCategory.getSelectedItem().toString(),
-                    amount,
+                    txtCategory.getText(),
+                    Double.parseDouble(txtAmount.getText()),
                     txtNote.getText()
             );
 
@@ -147,12 +122,15 @@ public class AddTransactionFrame extends BaseFrame {
             new DataTransactionFrame().setVisible(true);
             dispose();
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Periksa kembali input");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    ex.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
     }
-
-
 
     // ================= INPUT HELPERS =================
     private JPanel input(String label, JComponent field) {
