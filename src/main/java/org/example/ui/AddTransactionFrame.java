@@ -15,18 +15,33 @@ public class AddTransactionFrame extends BaseFrame {
     private JTextField txtAmount;
     private JTextArea txtNote;
 
+    private boolean editMode = false;
+    private Transaction oldTransaction;
+
+    // ================= CONSTRUCTOR ADD =================
     public AddTransactionFrame() {
         super("tambah");
         setTitle("Tambah Transaksi");
+        initContent();
     }
 
+    // ================= CONSTRUCTOR EDIT =================
+    public AddTransactionFrame(Transaction t) {
+        super("tambah");
+        this.editMode = true;
+        this.oldTransaction = t;
+        setTitle("Edit Transaksi");
+        initContent();
+    }
+
+    // ================= CONTENT =================
     @Override
     protected JPanel createContent() {
         JPanel container = new JPanel(new BorderLayout());
         container.setBackground(new Color(245, 246, 250));
         container.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
 
-        JLabel title = new JLabel("Tambah Transaksi");
+        JLabel title = new JLabel(editMode ? "Edit Transaksi" : "Tambah Transaksi");
         title.setFont(new Font("Segoe UI", Font.BOLD, 22));
 
         container.add(title, BorderLayout.NORTH);
@@ -43,24 +58,33 @@ public class AddTransactionFrame extends BaseFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(25, 40, 25, 40));
         panel.setMaximumSize(new Dimension(520, 500));
 
+        // ---- INIT FIELD (WAJIB DULU) ----
         txtDate = new JTextField(LocalDate.now().toString());
         txtCategory = new JTextField();
         txtAmount = new JTextField();
-
         cbType = new JComboBox<>(new String[]{"IN", "OUT"});
 
         txtNote = new JTextArea(3, 20);
         txtNote.setLineWrap(true);
         txtNote.setWrapStyleWord(true);
 
-        // ===== APPLY ROUNDED STYLE =====
+        // ---- STYLE ----
         styleRoundedField(txtDate);
         styleRoundedField(txtCategory);
         styleRoundedField(txtAmount);
         styleRoundedComboBox(cbType);
         styleRoundedArea(txtNote);
 
-        JButton btnSave = new JButton("Simpan Transaksi");
+        // ---- ISI DATA EDIT (SETELAH FIELD ADA) ----
+        if (editMode && oldTransaction != null) {
+            txtDate.setText(oldTransaction.getDate().toString());
+            cbType.setSelectedItem(oldTransaction.getType());
+            txtCategory.setText(oldTransaction.getCategory());
+            txtAmount.setText(String.valueOf(oldTransaction.getAmount()));
+            txtNote.setText(oldTransaction.getNote());
+        }
+
+        JButton btnSave = new JButton(editMode ? "Simpan Perubahan" : "Simpan Transaksi");
         styleGreenRoundedButton(btnSave);
         btnSave.addActionListener(e -> saveTransaction());
 
@@ -87,12 +111,15 @@ public class AddTransactionFrame extends BaseFrame {
                     txtNote.getText()
             );
 
-            TransactionService.addTransaction(t);
+            if (editMode) {
+                TransactionService.updateTransaction(oldTransaction, t);
+                JOptionPane.showMessageDialog(this, "Transaksi berhasil diubah");
+            } else {
+                TransactionService.addTransaction(t);
+                JOptionPane.showMessageDialog(this, "Transaksi berhasil disimpan");
+            }
 
-            JOptionPane.showMessageDialog(this,
-                    "Transaksi berhasil disimpan");
-
-            new DashboardFrame().setVisible(true);
+            new DataTransactionFrame().setVisible(true);
             dispose();
 
         } catch (Exception ex) {
@@ -162,7 +189,6 @@ public class AddTransactionFrame extends BaseFrame {
         btn.setOpaque(false);
         btn.setPreferredSize(new Dimension(220, 42));
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         btn.setFont(new Font("Segoe UI", Font.BOLD, 13));
 
         btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
