@@ -124,8 +124,6 @@ public class DashboardFrame extends BaseFrame {
         });
 
 
-
-
         panel.add(title,BorderLayout.NORTH);
         String[] coloums = {"Tanggal","kategori","Tipe","Jumlah"};
         Object[][] data = getLastThreeTransaction();

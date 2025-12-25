@@ -156,7 +156,9 @@ public class AddTransactionFrame extends BaseFrame {
         lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
 
         JScrollPane scroll = new JScrollPane(area);
-        scroll.setBorder(area.getBorder());
+        scroll.setBorder(new RoundedBorder(20, new Color(34, 166, 112)));
+        scroll.setMaximumSize(new Dimension(420, 90));
+        scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         panel.add(lbl, BorderLayout.NORTH);
         panel.add(scroll, BorderLayout.CENTER);
@@ -171,7 +173,8 @@ public class AddTransactionFrame extends BaseFrame {
     }
 
     private void styleRoundedArea(JTextArea area) {
-        area.setBorder(new RoundedBorder(20, new Color(34, 166, 112)));
+        area.setBorder(null);
+        area.setFont(new Font("Segoe UI", Font.PLAIN, 13));
     }
 
     private void styleRoundedComboBox(JComboBox<?> combo) {
