@@ -31,6 +31,7 @@ Aplikasi ini mendukung fitur login, pencatatan transaksi pemasukan dan pengeluar
 ---
 
 ## 🗂️ Struktur Folder
+```text
 src/
 └── main/
     └── java/
@@ -40,7 +41,7 @@ src/
                 │
                 ├── data/
                 │   ├── users.csv
-                │   ├── transactions.csv
+                │   └── transactions.csv
                 │
                 ├── finance/
                 │   ├── Transaction.java
