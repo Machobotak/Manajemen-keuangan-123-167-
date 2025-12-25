@@ -24,6 +24,7 @@ public class AuthFrame extends JFrame {
         setSize(900, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
         setLayout(new GridLayout(1, 2));
 
         formWrapper = new JPanel(null);
@@ -352,7 +353,6 @@ public class AuthFrame extends JFrame {
 
     private void slideToLogin() {
         clearRegisterField();
-
         Timer timer = new Timer(5, null);
         timer.addActionListener(e -> {
             int x1 = loginPanel.getX();
