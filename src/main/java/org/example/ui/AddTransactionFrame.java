@@ -131,7 +131,6 @@ public class AddTransactionFrame extends BaseFrame {
 
         JPanel actionPanel = new JPanel();
         actionPanel.setBackground(Color.WHITE);
-
         if (!editMode) {
             // ===== MODE TAMBAH =====
             actionPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
