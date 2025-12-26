@@ -52,7 +52,7 @@ public class AddTransactionFrame extends BaseFrame {
         this.editMode = true;
         this.oldTransaction = t;
         setTitle("Edit Transaksi");
-        initContent();   // ⬅️ INI WAJIB
+        initContent();
     }
 
     // ================= CONTENT =================
@@ -113,8 +113,8 @@ public class AddTransactionFrame extends BaseFrame {
 
         JButton btnSave = new JButton(editMode ? "Simpan Perubahan" : "Simpan Transaksi");
         JButton btnBatal = new JButton("Batal");
-        styleGreenRoundedButton(btnSave);
-        styleRedRoundedButton(btnBatal);
+        styleRoundedButton(btnSave, new Color(34, 166, 112));
+        styleRoundedButton(btnBatal, new Color(220, 53, 69));
         btnSave.addActionListener(e -> saveTransaction());
         btnBatal.addActionListener(e -> {
             new DataTransactionFrame().setVisible(true);
@@ -207,7 +207,7 @@ public class AddTransactionFrame extends BaseFrame {
             dispose();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Periksa kembali input");
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
 
@@ -259,46 +259,5 @@ public class AddTransactionFrame extends BaseFrame {
         combo.setBorder(new RoundedBorder(20, new Color(34, 166, 112)));
         combo.setMaximumSize(new Dimension(420, 36));
         combo.setBackground(Color.WHITE);
-    }
-
-    private void styleRedRoundedButton(JButton btn) {
-        btn.setForeground(Color.WHITE);
-        btn.setBackground(new Color(220, 53, 69));
-        styleRoundedButton(btn);
-    }
-
-    private void styleGreenRoundedButton(JButton btn) {
-        btn.setForeground(Color.WHITE);
-        btn.setBackground(new Color(34, 166, 112));
-        styleRoundedButton(btn);
-    }
-
-    private void styleRoundedButton(JButton btn) {
-        btn.setFocusPainted(false);
-        btn.setContentAreaFilled(false);
-        btn.setBorderPainted(false);
-        btn.setOpaque(false);
-        btn.setPreferredSize(new Dimension(140, 38));
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 12));
-
-        btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
-            @Override
-            public void paint(Graphics g, JComponent c) {
-                Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(
-                        RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON
-                );
-                g2.setColor(btn.getBackground());
-                g2.fillRoundRect(
-                        0, 0,
-                        c.getWidth(),
-                        c.getHeight(),
-                        30, 30
-                );
-                super.paint(g2, c);
-                g2.dispose();
-            }
-        });
     }
 }

@@ -160,4 +160,35 @@ public abstract class BaseFrame extends JFrame {
             }
         });
     }
+
+    protected void styleRoundedButton(JButton btn, Color bgColor) {
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(bgColor);
+        btn.setFocusPainted(false);
+        btn.setContentAreaFilled(false);
+        btn.setBorderPainted(false);
+        btn.setOpaque(false);
+        btn.setPreferredSize(new Dimension(140, 38));
+        btn.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
+        btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
+            @Override
+            public void paint(Graphics g, JComponent c) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(
+                        RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON
+                );
+                g2.setColor(btn.getBackground());
+                g2.fillRoundRect(
+                        0, 0,
+                        c.getWidth(),
+                        c.getHeight(),
+                        30, 30
+                );
+                super.paint(g2, c);
+                g2.dispose();
+            }
+        });
+    }
 }

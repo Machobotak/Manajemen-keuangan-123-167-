@@ -114,9 +114,9 @@ public class DataTransactionFrame extends BaseFrame {
         JButton btnDelete = new JButton("Hapus");
         JButton btnBack = new JButton("Kembali");
 
-        styleYellowRoundedButton(btnEdit);
-        styleRedRoundedButton(btnDelete);
-        styleGrayRoundedButton(btnBack);
+        styleRoundedButton(btnEdit, new Color(255, 193, 7));   // kuning
+        styleRoundedButton(btnDelete, new Color(220, 53, 69)); // merah
+        styleRoundedButton(btnBack, new Color(108, 117, 125)); // abu
 
         btnEdit.addActionListener(e -> editSelected());
         btnDelete.addActionListener(e -> deleteSelected());
@@ -182,53 +182,5 @@ public class DataTransactionFrame extends BaseFrame {
 
         table.setModel(tableModel);
         table.setRowSorter(sorter);
-    }
-
-    // ================= BUTTON STYLES =================
-    private void styleRedRoundedButton(JButton btn) {
-        btn.setForeground(Color.WHITE);
-        btn.setBackground(new Color(220, 53, 69));
-        styleRoundedButton(btn);
-    }
-
-    private void styleGrayRoundedButton(JButton btn) {
-        btn.setForeground(Color.WHITE);
-        btn.setBackground(new Color(108, 117, 125));
-        styleRoundedButton(btn);
-    }
-
-    private void styleYellowRoundedButton(JButton btn) {
-        btn.setForeground(Color.BLACK);
-        btn.setBackground(new Color(255, 193, 7));
-        styleRoundedButton(btn);
-    }
-
-    private void styleRoundedButton(JButton btn) {
-        btn.setFocusPainted(false);
-        btn.setContentAreaFilled(false);
-        btn.setBorderPainted(false);
-        btn.setOpaque(false);
-        btn.setPreferredSize(new Dimension(140, 38));
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 12));
-
-        btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
-            @Override
-            public void paint(Graphics g, JComponent c) {
-                Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(
-                        RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON
-                );
-                g2.setColor(btn.getBackground());
-                g2.fillRoundRect(
-                        0, 0,
-                        c.getWidth(),
-                        c.getHeight(),
-                        30, 30
-                );
-                super.paint(g2, c);
-                g2.dispose();
-            }
-        });
     }
 }
