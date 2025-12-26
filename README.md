@@ -86,6 +86,7 @@ App.java
 👤 Pengembang
 
 Nama: Muhammad Ibrahim Al-Ayubi
+
 Nama: Fiqri Ridho Firmansyah
 
 Program Studi: Informatika
