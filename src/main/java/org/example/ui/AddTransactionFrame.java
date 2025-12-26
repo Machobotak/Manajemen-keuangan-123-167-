@@ -48,11 +48,11 @@ public class AddTransactionFrame extends BaseFrame {
 
     // ================= CONSTRUCTOR EDIT =================
     public AddTransactionFrame(Transaction t) {
-        super("tambah");
+        super("edit");
         this.editMode = true;
         this.oldTransaction = t;
         setTitle("Edit Transaksi");
-        initContent();
+        initContent();   // ⬅️ INI WAJIB
     }
 
     // ================= CONTENT =================
@@ -112,8 +112,14 @@ public class AddTransactionFrame extends BaseFrame {
         }
 
         JButton btnSave = new JButton(editMode ? "Simpan Perubahan" : "Simpan Transaksi");
+        JButton btnBatal = new JButton("Batal");
         styleGreenRoundedButton(btnSave);
+        styleRedRoundedButton(btnBatal);
         btnSave.addActionListener(e -> saveTransaction());
+        btnBatal.addActionListener(e -> {
+            new DataTransactionFrame().setVisible(true);
+            dispose();
+        });
 
         panel.add(input("Tanggal (YYYY-MM-DD)", txtDate));
         panel.add(input("Tipe Transaksi", cbType));
@@ -121,8 +127,30 @@ public class AddTransactionFrame extends BaseFrame {
         panel.add(input("Jumlah", txtAmount));
         panel.add(inputArea("Catatan", txtNote));
 
-        panel.add(Box.createRigidArea(new Dimension(0, 25)));
-        panel.add(btnSave);
+        panel.add(Box.createRigidArea(new Dimension(0, 38)));
+
+        JPanel actionPanel = new JPanel();
+        actionPanel.setBackground(Color.WHITE);
+
+        if (!editMode) {
+            // ===== MODE TAMBAH =====
+            actionPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+            actionPanel.add(btnSave);
+
+        } else {
+            // ===== MODE EDIT =====
+            actionPanel.setLayout(new BoxLayout(actionPanel, BoxLayout.X_AXIS));
+
+            actionPanel.add(Box.createHorizontalGlue());
+            actionPanel.add(btnBatal);
+            actionPanel.add(Box.createHorizontalStrut(20));
+            actionPanel.add(btnSave);
+            btnSave.setPreferredSize(new Dimension(220, 42));
+            btnBatal.setPreferredSize(new Dimension(160, 42));
+            actionPanel.add(Box.createHorizontalGlue());
+        }
+
+        panel.add(actionPanel);
 
         return panel;
     }
@@ -234,25 +262,41 @@ public class AddTransactionFrame extends BaseFrame {
         combo.setBackground(Color.WHITE);
     }
 
+    private void styleRedRoundedButton(JButton btn) {
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(new Color(220, 53, 69));
+        styleRoundedButton(btn);
+    }
+
     private void styleGreenRoundedButton(JButton btn) {
         btn.setForeground(Color.WHITE);
         btn.setBackground(new Color(34, 166, 112));
+        styleRoundedButton(btn);
+    }
+
+    private void styleRoundedButton(JButton btn) {
         btn.setFocusPainted(false);
         btn.setContentAreaFilled(false);
         btn.setBorderPainted(false);
         btn.setOpaque(false);
-        btn.setPreferredSize(new Dimension(220, 42));
-        btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        btn.setPreferredSize(new Dimension(140, 38));
+        btn.setFont(new Font("Segoe UI", Font.BOLD, 12));
 
         btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
             @Override
             public void paint(Graphics g, JComponent c) {
                 Graphics2D g2 = (Graphics2D) g.create();
-                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setRenderingHint(
+                        RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON
+                );
                 g2.setColor(btn.getBackground());
-                g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 30, 30);
+                g2.fillRoundRect(
+                        0, 0,
+                        c.getWidth(),
+                        c.getHeight(),
+                        30, 30
+                );
                 super.paint(g2, c);
                 g2.dispose();
             }

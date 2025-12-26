@@ -81,8 +81,14 @@ public abstract class BaseFrame extends JFrame {
     // ================= ACTIVE MENU =================
     private void setActiveMenu(String menu) {
         btnDashboard.setActive(menu.equals("dashboard"));
-        btnTambah.setActive(menu.equals("tambah"));
+        btnTambah.setActive(menu.equals("tambah") || menu.equals("edit"));
         btnData.setActive(menu.equals("data"));
+
+        if (menu.equals("edit")) {
+            btnTambah.setText("Edit Transaksi");
+        } else {
+            btnTambah.setText("Tambah Transaksi");
+        }
     }
 
     // ================= NAV BUTTON =================
