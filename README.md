@@ -74,11 +74,20 @@ src/
 2. Clone repository ini:
    ```bash
    git clone https://github.com/Machobotak/Manajemen-keuangan-123-167-.git
-Buka project menggunakan IntelliJ IDEA
+3. Buka project menggunakan IntelliJ IDEA
 
-Jalankan file:
-
-Salin kode
+4. Jalankan file:
+ ```text
 App.java
-Aplikasi akan terbuka pada halaman Login
+```
+5. Aplikasi akan terbuka pada halaman Login
+---
 
+👤 Pengembang
+
+Nama: Muhammad Ibrahim Al-Ayubi
+Nama: Fiqri Ridho Firmansyah
+
+Program Studi: Informatika
+
+Universitas: Universitas Muhammadiyah Malang
